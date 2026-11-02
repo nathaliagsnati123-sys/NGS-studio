@@ -26,7 +26,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService, preselecte
 
   const [loading, setLoading] = useState(false);
   const [submittedStatus, setSubmittedStatus] = useState<
-    'idle' | 'success' | 'requiresSetup' | 'error'
+    'idle' | 'success' | 'error'
   >('idle');
   const [statusMessage, setStatusMessage] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -94,17 +94,14 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService, preselecte
       if (response.ok && data.success) {
         setSubmittedStatus('success');
         setStatusMessage(data.message || 'Mensagem enviada com sucesso! Em breve entrarei em contato.');
-      } else if (data.requiresSetup) {
-        setSubmittedStatus('requiresSetup');
-        setStatusMessage(data.message);
       } else {
         setSubmittedStatus('error');
-        setStatusMessage(data.error || 'Não foi possível enviar a mensagem no momento.');
+        setStatusMessage(data.error || 'Não foi possível enviar a mensagem no momento. Tente pelo WhatsApp.');
       }
     } catch (err) {
-      console.error('Falha de rede:', err);
-      setSubmittedStatus('requiresSetup');
-      setStatusMessage('Não foi possível conectar ao servidor de e-mail.');
+      console.error('Falha de envio:', err);
+      setSubmittedStatus('error');
+      setStatusMessage('Não foi possível enviar a mensagem no momento. Tente pelo WhatsApp ou e-mail direto.');
     } finally {
       setLoading(false);
     }
@@ -369,17 +366,17 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService, preselecte
                 </form>
               )}
 
-              {/* Status de Integração Transparente (Sem fingir envio falso se não houver backend de e-mail ativado) */}
-              {submittedStatus === 'requiresSetup' && (
+              {/* Opções diretas caso ocorra erro de conexão */}
+              {submittedStatus === 'error' && (
                 <div className="mt-6 p-5 bg-neutral-50 rounded-lg border border-neutral-200">
                   <div className="flex items-start gap-3 mb-3">
                     <AlertCircle className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
                     <div>
                       <h4 className="text-xs font-bold text-neutral-900 uppercase tracking-wide">
-                        Informação de Envio & Opções Imediatas
+                        {statusMessage}
                       </h4>
                       <p className="text-xs text-neutral-600 mt-1 leading-relaxed">
-                        Os dados foram preenchidos corretamente! Para garantir que sua mensagem chegue agora mesmo à Nathe Silva sem depender de servidores intermediários, escolha abaixo:
+                        Você também pode enviar sua mensagem diretamente pelo WhatsApp ou pelo seu aplicativo de e-mail:
                       </p>
                     </div>
                   </div>
@@ -403,7 +400,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService, preselecte
                   </div>
 
                   <div className="mt-3 pt-3 border-t border-neutral-200/80 flex items-center justify-between text-[11px] text-neutral-500">
-                    <span>Cópia rápida do texto estruturado:</span>
+                    <span>Cópia rápida do texto:</span>
                     <button
                       onClick={handleCopyText}
                       className="text-neutral-700 font-semibold hover:text-neutral-900 flex items-center gap-1"
