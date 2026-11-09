@@ -24,9 +24,9 @@ interface ServiceItemClean {
 export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
   const servicesList: ServiceItemClean[] = [
     {
-      id: 'consultoria-otimizacao-instagram',
+      id: 'otimizacao-instagram',
       number: '01',
-      title: 'Consultoria e Otimização de Instagram',
+      title: 'Otimização de Instagram',
       description:
         'Ajudo você a transformar seu perfil em uma apresentação mais profissional, estratégica e organizada, com orientação personalizada para melhorar sua presença digital.',
       icon: <SlidersHorizontal className="w-5 h-5 text-cyan-700" />,
@@ -88,7 +88,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             Como posso ajudar sua marca a crescer no digital?
           </h2>
           <p className="text-sm sm:text-base text-neutral-600 mt-3 leading-relaxed">
-            Ofereço soluções em marketing e conteúdo para ajudar empresas e profissionais a construírem uma presença digital mais organizada, estratégica e profissional.
+            Ofereço soluções em marketing de conteúdos para ajudar empresas e profissionais a construírem uma presença digital mais organizada, estratégica e profissional.
           </p>
         </div>
 

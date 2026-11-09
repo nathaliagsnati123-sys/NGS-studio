@@ -1,5 +1,5 @@
 /**
- * Configurações Centrais do Site — Nathe Silva | Marketing e Conteúdo
+ * Configurações Centrais do Site — Nathe Silva | Marketing de Conteúdos
  * 
  * Todas as informações de contato, links sociais, textos e serviços
  * podem ser editadas de forma centralizada e intuitiva neste arquivo.
@@ -42,7 +42,7 @@ export const siteConfig = {
   // Dados de Identidade e Contato
   author: {
     name: 'Nathe Silva',
-    profession: 'Marketing e Conteúdo',
+    profession: 'Marketing de Conteúdos',
     shortBio: 'Especialista em marketing digital, gestão estratégica de redes sociais e criação de sites modernos.',
     email: 'nathaliagsnati123@gmail.com',
     
@@ -71,7 +71,7 @@ export const siteConfig = {
   about: {
     title: 'Prazer, sou Nathe Silva!',
     paragraphs: [
-      'Sou profissional de Marketing de Conteúdo, com 6 anos de experiência na área e estudante de Administração. Ao longo da minha trajetória, desenvolvi habilidades em comunicação digital, criação de conteúdo, redes sociais e estratégias para fortalecer a presença de marcas e pessoas no ambiente digital.',
+      'Sou profissional de Marketing de Conteúdos, com 6 anos de experiência na área e estudante de Administração. Ao longo da minha trajetória, desenvolvi habilidades em comunicação digital, criação de conteúdo, redes sociais e estratégias para fortalecer a presença de marcas e pessoas no ambiente digital.',
       'Acredito que uma presença digital forte começa com estratégia, criatividade e comunicação. Meu propósito é ajudar pessoas e negócios a transformarem suas ideias em uma comunicação mais estratégica, profissional e autêntica.',
     ],
     highlights: [
@@ -84,9 +84,9 @@ export const siteConfig = {
   // Catálogo Oficial dos 5 Serviços
   services: [
     {
-      id: 'consultoria-otimizacao-instagram',
+      id: 'otimizacao-instagram',
       number: '01',
-      title: 'Consultoria e Otimização de Instagram',
+      title: 'Otimização de Instagram',
       category: 'Instagram & Diagnóstico',
       tagline: 'Transformação do perfil em uma apresentação mais profissional e organizada.',
       description: 'Ajudo você a transformar seu perfil em uma apresentação mais profissional, estratégica e organizada, com orientação personalizada para melhorar sua presença digital.',
